@@ -1,0 +1,15 @@
+---
+firewall_state: started
+firewall_enabled_at_boot: true
+
+firewall_allowed_udp_ports: []
+
+firewall_allowed_tcp_ports:
+  - "22"
+
+firewall_additional_rules:
+# SNMP
+  - "iptables -A INPUT -p udp --dport 161 -s 10.3.0.0/16 -j ACCEPT"
+  - "iptables -A INPUT -p udp --dport 161 -s 10.11.0.0/16 -j ACCEPT"
+  - "iptables -A INPUT -p tcp --dport 161 -s 10.3.0.0/16 -j ACCEPT"
+  - "iptables -A INPUT -p tcp --dport 161 -s 10.11.0.0/16 -j ACCEPT"

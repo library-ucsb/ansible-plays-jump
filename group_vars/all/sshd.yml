@@ -1,0 +1,17 @@
+# willshersystems.sshd
+sshd_enable: True
+sshd_skip_defaults: False
+sshd_manage_service: True
+sshd_allow_reload: True
+sshd:
+  AllowUsers:
+    - josh
+    - mokuno
+    - logicmonitor
+    - properlysortednyc
+    - mjbeaumont
+    - drankin
+
+  PubkeyAuthentication: True
+  LogLevel: 'debug'
+  UseDNS: 'no'

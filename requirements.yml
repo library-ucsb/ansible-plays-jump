@@ -1,0 +1,17 @@
+---
+
+collections:
+  - name: git@github.com:ucsb/ansible-collections-core.git
+  - name: git@github.com:ucsb/ansible-collections-legacy.git
+
+
+roles:
+  - name: willshersystems.sshd
+  - name: singleplatform-eng.users
+  - name: geerlingguy.firewall
+  - name: geerlingguy.ntp
+  - name: ahuffman.sudoers
+  - name: sbaerlocher.snmp
+  - name: cmprescott.autofs
+
+

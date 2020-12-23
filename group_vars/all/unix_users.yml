@@ -1,0 +1,67 @@
+users:
+  - username: josh
+    name: Josh Preston
+    groups: ['ops']
+    home: /home/josh
+    password: "{{ secrets.users.josh.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEA+NAatW7Fn47StI5JjSGmiA9Rje910v+ZftAlY+djkdk9ZeCgM6JjqJQA7gtYIgCv7BA4qADNBWbmbA3jtT6fWEuxpppvmtfXT7kqWDkUeOBawtq0i5YJTo7WszY2N5DLjoaGdyB/aMIAOnJyfBzrCY/iYq7bzF0isCJnAjID6Cs= josh"
+      - "ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1MjEAAACFBAEX+XstpIlrgBTH96BvkiQF6tY6rQP0cWnzyOugB5KF/PtUM51c6x15xCaMIOw1PmjUVguNPxDrnUPdbYth/e3yDABvJPEKosYucRGkzGemfv0CptzYCEUUEm2WeKr8U1y1AL2gNqbhfXUAA1CbirMGo2PLo9pItLHOZeIKYrSxQU5Kjw== josh@sys12-mac.local"
+      - "ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBBLYb2B4Kj/eioevUM1lqis/vpamjGOc77pfMVzEo79gslrfvfkhE40ESRHkoG+B35Z0lv8P/9fyHX7zw7Swnwk= josh@josh-Latitude-5501"
+      - "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJ5HRKieCuS1gm+AgGAr3SD9NrlBD2OrxxxQFf3bFXEK SSH Keypair for UCSB/LIB"
+
+  - username: mokuno
+    name: Mark Okuno
+    groups: ['ops']
+    home: /home/mokuno
+    password: "{{ secrets.users.mokuno.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAQEAwwI1LK0jmQYi6jynIZqhMF6yJ7T7iozwz7+zwbQ8l0dZ/Vwsea++x78ikLuFKqguMGNWcipSXakAB3UceGCFYdUE9LZ3h0dLp4AD/nalk5IJoyOkB8amachGunOWiuPIjC57I2ujEQJmSzue8jRyw0+eYBosHqt+kZuSjZEGkQbFdfwe9302OZ/QgjvBNNUWwSlSR95aFfFIAkIEPGKj4cvN7BF+NcF/YqP65sRnRGkgzjGZCQD4SBfz9PUu2oWdjk2HbAmjV/kFIe/WlIUzXmCKPSZYOYjR/zT3bS9QEFUE14ZiYKufqABZG1Aldbt8NeynM2t8xwKBwX2tgiuBdQ=="
+    
+  - username: logicmonitor
+    name: LogicMonitor BotNet
+    home: /home/logicmonitor
+    shell: /bin/bash
+    password: "{{ secrets.users.logicmonitor.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDc97wY2Hoprkmtf3PVOIP5CbGCqDM21O6pBfhw1Zz21bHoXWs0ftMc2/2tyTOiFBHrUvUGGunXVmB3o/HZaMof+P1rAjZMV/+BEB/kfjSeUtDu+p/iiVZ7QjW2PX8pMtAEZDd+ZhRndomP5xHGvb/0tne3Lz+o0owsbKXj7grhYiHXCcJYiohmudvkEGF70WjRQ1LYTwYejgH47V19yzsNyi0M4965lpdbpFWl9WN+9C9vASN70wqL+7+LkDVm714J7MEoluRaUSVbpfAw2scPmOhGW9MmZuu0W1M1ig5xSLYhgpbW8dYPFz9JGdO4RCr3abu4ZFNfSmYnKCiOrjhz"
+
+  - username: properlysortednyc
+    name: ProperlySorted
+    groups: ['adp']
+    home: /home/properlysortednyc
+    shell: /bin/bash
+    password: "{{ secrets.users.properlysortednyc.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUIwKAqWSHVGQ/v+iuJ6xDYrNil99VFmj3N4ct3jSsPlRJixQwXKi+q9XYSnk3L/ThcKGviaUdmts7FVc+43sxyBPChWv1twIPJrIqcSpPfOnsg03JZU2veh33ETLt1VtE/fXU4Ut0CnIMMOG96pIo/hGQsWu/1Zv09ETnCDl1ik0IiJ3N8Pex475VUN47aoDEMvZmsNXUttMX1ZsBYA0PAJBPQPagLTZ3vwXjyiEh47CLce54o5svWQq3mP1S9nE4pcUcWDJ+X85yRRUS9jDj2l5mh+HPKnDzIbPjjIMho9YWvFiry+K2M4sR82DFy83PQnmzupcuTC/TXMc1yxLb properlysorted_nyc@Michael-Lashutkas-Office-iMac.local"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUIwKAqWSHVGQ/v+iuJ6xDYrNil99VFmj3N4ct3jSsPlRJixQwXKi+q9XYSnk3L/ThcKGviaUdmts7FVc+43sxyBPChWv1twIPJrIqcSpPfOnsg03JZU2veh33ETLt1VtE/fXU4Ut0CnIMMOG96pIo/hGQsWu/1Zv09ETnCDl1ik0IiJ3N8Pex475VUN47aoDEMvZmsNXUttMX1ZsBYA0PAJBPQPagLTZ3vwXjyiEh47CLce54o5svWQq3mP1S9nE4pcUcWDJ+X85yRRUS9jDj2l5mh+HPKnDzIbPjjIMho9YWvFiry+K2M4sR82DFy83PQnmzupcuTC/TXMc1yxLb properlysortednyc SSH Key"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEA0O3VTs3feer9m20WnHIkUinkfXG0O0fg77DvE2iuilpc1FfmmpvqeShqMbP5lbN9TweAdcN8OiXkRQC2z1gpaiyd1r1I+mVZEzDhlpHc81yOwY2FCNUMTwhR72HoU7qZgMj3syi/74o/JkASV9B22ZFjwPO/Fr6v8NCAl8gr0oE= lee@Macintosh-3.local"  
+
+
+  - username: mjbeaumont
+    name: Matt Beaumont
+    groups: ['adp']
+    home: /home/mjbeaumont
+    shell: /bin/bash
+    password: "{{ secrets.users.mjbeaumont.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ZLq7fQRYWx9cMYbFWOiEGpwaXsqL2f9XG0mS/PsOuKjj7CV5n/C6AD3MLhI/JHRl6cp/E6O0fs00Czl79F//6X21CHGf2We7TDqQRYy60XVvW2tcDxNN6KVY/v0NmaI3cObBTfPwj6ZhmWlosELrQkG4U/AC6GGcLSOa2bI2AXiVGP2MxjbR1HxAwh/6moBCHY0rCh8eVCLPlC++/OWM97agX6/FtZBjZkvNWnMA0/1gMlYw4VUsR2WNgwyETXpb9DTvPrX+xv/vR0Hq7c9CKG1NrmZVB0mlSQ2eNy/5tTGZPXfWIslgmlWshwTJRi9+fwFyM372sHKsg2dQZXqp matt@beaumontwebdev.com"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ZLq7fQRYWx9cMYbFWOiEGpwaXsqL2f9XG0mS/PsOuKjj7CV5n/C6AD3MLhI/JHRl6cp/E6O0fs00Czl79F//6X21CHGf2We7TDqQRYy60XVvW2tcDxNN6KVY/v0NmaI3cObBTfPwj6ZhmWlosELrQkG4U/AC6GGcLSOa2bI2AXiVGP2MxjbR1HxAwh/6moBCHY0rCh8eVCLPlC++/OWM97agX6/FtZBjZkvNWnMA0/1gMlYw4VUsR2WNgwyETXpb9DTvPrX+xv/vR0Hq7c9CKG1NrmZVB0mlSQ2eNy/5tTGZPXfWIslgmlWshwTJRi9+fwFyM372sHKsg2dQZXqp mjbeaumont SSH Key"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA8bNLHO8djxkme2IbHvYCuDLVIDLJsvPh0AOpsQA75lcUMVPa0WX5EfpRCfstfex1dJ95ueebIksvbnV98zbt3O4nfAyvVuD5aq2F80By7ppmdTvRDUOqIMIqn8Pyeet6JaAx9mmfBHd3TiUH5e9dxT6WMJT6ZY0tF7+lto4+M7c6f9Jx4HFNT9ntkt6QqrqDJ3ygufIRLS+7vRdslcT9IfcemxIZ4HQBGIPb8Hbz3E43cdPsO3u8GwwPxao9p2Cb/ZDX4TmrGIFDOaxdgYl9qZQaaIJ+fXBdDlwXmAGXKavr6DYYNbiwnvJbGSGs2zgFPnjmKoAn+4ouuB93NJ5bfw== mjbeaumont@adp1-dev"
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAqSMhy3fcembm7kNr231+CXSdYlSIN0X2FR3YIC7zENxOaHiRHw2RpsCQf4X0199RmIocS2+raikpaKMyajy9Dc9V0FPs5oa3CBgw0m9J/4LBkhE0+TfEamd+dnw1xGnp2/NUoDIbzy/YlnTpFQJrSnBwakNxZJuioBH8JUNjFnU= ssmith SSH Key"
+
+       
+  - username: drankin
+    name: David Rankin
+    home: /home/drankin
+    shell: /bin/bash
+    password: "{{ secrets.users.logicmonitor.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCt69f2EWVryqXvsPVdLfZJFuJ1DbnVqzlRxsfWtP3x5pyb4gVGXJJbUSMiNA+hLcODvYOSAJ4U42jA2quTcShgbl4CjauQ4Ora5JBFYOatuH4lTIe74dCbxhQCHd3POSbC3zPSDtlhsAZryIieVciGzLsdaPMO+oop3as6nlYHv4+HtvAU09du9NNbRT5nTS0Qaysftlp0uetgKb4EfJNqGb9DYJSR70RC2Ta83GIr4KY1sDzgFtqeI5EDPdlwi7nUzvs3psjuapLYGmY7/l72ykukJkzLiEDlI2IUPTPGy9U9ztgIEZkZUFw9By8ZTqXvQsqUDMw7bjvc+MQfuh5x6atT/qOy2WkQl+Q/0VSBCuDFxnfU1TJAhVlBS4pU2R6dCN6KgeB+c22RvyIbUAbpAYWjURAGvIVh99q0C/mntz+e6WEyRrM1qprTiZrQ+UMMCz1uWfj9w4JYOLOvEqPIyvDNK0OeI3Yhyqmx3hEhlzX2BtNsdf9M3mYHZDt+3RCkiGi6L6yr79is8phUXr2C0UO5P6HYK0fKud3US5HXMZjJBEgZGicR2Hc8T7QlewpLbPmCt+X4e66v0azHk+GJ6s/xOqeqRK7rOEinr31u5jqDHX7aP07PwZNLWWjFGZ4A5BumqfQcBBmyjJgJF6LIm2mUC+rfDszN888Alh4o5Q== dave@crispin.local"
+
+groups_to_create:
+  - name: ops
+  - name: adp
+  - name: dld
+
+

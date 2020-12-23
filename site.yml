@@ -1,0 +1,24 @@
+---
+# file: play-adp.yml
+- hosts: primary_bastions
+  become: yes
+  
+  roles:
+    - role: singleplatform-eng.users    
+      tags: ['service:users', 'stage:init']
+
+    - role: ahuffman.sudoers
+      tags: ['service:sudo', 'stage:init']
+
+    - role: willshersystems.sshd
+      tags: ['service:sshd', 'stage:init']
+
+    - role: geerlingguy.ntp
+      tags: ['service:ntp', 'stage:init']
+
+    - role: sbaerlocher.snmp
+      tags: ['service:snmp', 'stage:init']
+
+    - role: geerlingguy.firewall
+      tags: ['service:firewall', 'stage:init']
+
