@@ -1,6 +1,5 @@
 ---
-# file: play-adp.yml
-- hosts: primary_bastions
+- hosts: ansible_automation_service_jump_node
   become: yes
   
   roles:
