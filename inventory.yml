@@ -1,9 +1,0 @@
-all:
-  children:
-    primary_bastions:
-      hosts:
-        ucsb-nhdc-bastion-01:
-          ansible_host: 128.111.87.190
-        ucsb-nhdc-bastion-02:
-          ansible_host: 128.111.87.191
-
