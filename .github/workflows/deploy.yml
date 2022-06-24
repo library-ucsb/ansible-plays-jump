@@ -1,0 +1,179 @@
+name: "ssh jump: ansible playbook - full host [DEPLOY]"
+on:
+  push:
+    branches:
+      - 'main'
+    
+env:
+  DOCKER_BUILDKIT: 1
+
+jobs:
+
+  notifications_start:
+    name: "slack: ssh jump host ansible run"
+    runs-on: ubuntu-latest
+    if: ${{ always() }}
+    
+    steps:
+
+      - name: "slack: notify channel of zone deployment task beginning"
+        id: slack_zonefiles_job_start
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          channel-id: 'C03B33YJUVC'
+          payload: |
+            {
+              "blocks": [
+                {
+                  "type": "header",
+                  "text": {
+                    "type": "plain_text",
+                    "text": "Job Start: SSH Jump Host Ansible Playbook Run - Full [id: ${{ github.run_id }}]",
+                    "emoji": true
+                  }
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*User:*\n${{ github.actor }}"
+                    },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Commit Message*:\n${{ github.event.head_commit.message }}"
+                    }
+                  ]
+                },
+                {
+                  "type": "section",
+                  "fields": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Link:*\n<https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}|${{ github.run_id }}>"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
+  deploy:
+    name: "[deploy] ssh jump host: ansible-playbook run - complete playbook"
+    runs-on: [self-hosted, linux]
+    if: ${{ success() }}
+    
+    container: 
+      image: ghcr.io/library-ucsb/ansible-plays-dns-bind9/ansible-container:latest
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        actor: ${{ github.actor }}
+        VMWARE_HOST: ${{ secrets.VMWARE_HOST }}
+        VMWARE_PASSWORD: ${{ secrets.VMWARE_PASSWORD }}
+        VMWARE_USERNAME: ${{ secrets.VMWARE_USERNAME }}
+    
+    outputs:
+      deploy_results: "${{ steps.run_ansible.outputs.ansible_deploy_results }}"
+      deploy_rc: "${{ steps.run_ansible.outputs.ansible_deploy_rc }}" 
+      slack_message: "${{ steps.run_ansible.outputs.slack_message}}"
+
+    steps:
+      - name: checkout branch
+        uses: actions/checkout@v3
+
+      - name: copy ansible.cfg
+        run: cp -v .github/ansible/ansible.cfg .
+
+      - name: create vault password file
+        run: |
+          echo "${{ secrets.ANSIBLE_VAULT_PASSWORD }}" > ansible-vault-password-file.txt
+          chmod 0400 ansible-vault-password-file.txt
+      
+      - name: create ansible-vault ssh private key
+        run: |
+          echo "${{ secrets.ANSIBLE_DEPLOY_SSH_KEY }}" > ansible-ssh-private-key
+          chmod 0400 ansible-ssh-private-key
+
+      - name: "cache: ansible roles"
+        id: cache-ansible-roles
+        uses: actions/cache@v3
+        with:
+          path: roles
+          key: ${{ runner.os }}-roles
+
+      - name: "cache: ansible collections"
+        id: cache-ansible-collections
+        uses: actions/cache@v3
+        with:
+          path: ansible_collections
+          key: ${{ runner.os }}-collections
+
+      - name: initialize ansible collections and roles dependencies
+        env:
+          http_proxy: 10.3.100.201:3128
+          https_proxy: 10.3.100.201:3128
+        run: |
+          cp -v .github/ansible/requirements.yml .
+          .github/ansible/initialize-ansible-for-github-actions.sh "${{ secrets.GITHUB_TOKEN }}"
+
+      - name: run ansible
+        id: run_ansible
+        shell: bash
+        run: |
+          rc=0
+
+          ansible-playbook site.yml --extra-vars="@.github/ansible/ansible_become_pass-vault.yml" --diff
+
+          slack_message="SUCCESS"
+          if [ $? -ne 0 ]; then
+            rc=1
+            slack_message="FAILED"
+          fi
+
+          echo "::debug::slack_message: ${slack_message}"
+          echo "::debug::rc: ${rc}"
+          echo "::set-output name=slack_message::${slack_message}"
+          echo "::set-output name=ansible_deploy_rc::${rc}"
+
+          exit $rc
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: ansible-playbook-run-log
+          path: ./logs/ansible.log
+
+  notifications_final:
+    name: "slack: SSH Jump Host: Ansible Deployment Results"
+    runs-on: ubuntu-latest
+    needs: deploy
+    if: ${{ success() }}
+
+    steps:
+      - name: "slack: notify channel of deployment results"
+        id: slack_zonefiles_deployment_results
+        uses: slackapi/slack-github-action@v1.18.0
+        with:
+          channel-id: 'C03B33YJUVC'
+          payload: |
+            {
+            	"blocks": [
+            		{
+            			"type": "section",
+                  "fields": [
+            			  {
+            			  	"type": "mrkdwn",
+            			  	"text": "*Deployment:*\n${{ needs.deploy.outputs.slack_message }}"
+            			  },
+                    {
+                      "type": "mrkdwn",
+                      "text": "*Return Code:*\n${{ needs.deploy.outputs.deploy_rc }}"
+                    }
+                  ]
+            		}
+            	]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}

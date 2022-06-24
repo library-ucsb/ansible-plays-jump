@@ -5,7 +5,6 @@ collections:
   - name: git@github.com:library-ucsb/library-ansible-collections-core.git
   - name: git@github.com:library-ucsb/iac-ansible-collections-legacy.git
 
-
 roles:
   - name: willshersystems.sshd
   - name: singleplatform-eng.users

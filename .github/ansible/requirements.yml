@@ -1,0 +1,32 @@
+---
+
+collections:
+  - name: community.general
+    
+roles:
+  - name: willshersystems.sshd
+    version: v0.15.0
+
+  - name: singleplatform-eng.users
+    version: v1.2.6
+
+  - name: geerlingguy.firewall
+    version: 2.5.0
+    
+  - name: geerlingguy.ntp
+    version: 2.3.1
+    
+  - name: geerlingguy.pip
+    version: 2.1.0
+    
+  - name: ahuffman.sudoers
+    version: 2.0.3
+    
+  - name: sbaerlocher.snmp
+    version: 1.9.0
+  
+  - name: cmprescott.autofs
+    version: 1.1.1
+
+  - name: geerlingguy.repo-epel
+    version: 3.1.0

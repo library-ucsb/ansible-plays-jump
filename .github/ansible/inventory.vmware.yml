@@ -1,0 +1,22 @@
+plugin: community.vmware.vmware_vm_inventory
+strict: False
+validate_certs: False
+with_tags: True
+
+hostnames:
+  - config.name
+
+compose:
+  ansible_host: 'guest.ipAddress'
+  compose_var: 'config.name'
+
+properties:
+  - 'name'
+  - 'config.name'
+  - 'config.guestId'
+  - 'guest.ipAddress'
+  - 'summary.runtime.powerState'
+
+keyed_groups:
+  - key: tags
+    separator: 'ansible_'
