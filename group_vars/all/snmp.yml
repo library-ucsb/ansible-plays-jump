@@ -6,5 +6,12 @@ snmp_contact: "John Ajao"
 snmp_location: "University of California, Santa Barbara"
 snmp_deamon_group: 'snmp'
 snmp_deamon_user: 'snmp'
-snmp_agentadress_adress:
-  ipv4: ''
+
+# this is to fix mispelling in upstream role
+snmp_agentaddress_adress:
+  ipv4: ""
+  ipv6: ""
+
+snmp_agentadress_adress: "{{ snmp_agentaddress_adress }}"
+snmp_agentadress_protocol: "{{ snmp_agentaddress_protocol }}"
+snmp_agentadress_port: "{{ snmp_agentaddress_port }}"
