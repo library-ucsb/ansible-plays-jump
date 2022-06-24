@@ -117,6 +117,7 @@ jobs:
           https_proxy: 10.3.100.201:3128
         run: |
           cp -v .github/ansible/requirements.yml .
+          chmod +x .github/ansible/initialize-ansible-for-github-actions.sh
           .github/ansible/initialize-ansible-for-github-actions.sh "${{ secrets.GITHUB_TOKEN }}"
 
       - name: run ansible
