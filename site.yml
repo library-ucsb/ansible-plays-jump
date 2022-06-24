@@ -1,23 +1,41 @@
 ---
-- hosts: ansible_automation_service_jump_node
+- hosts: ansible_jump
   become: yes
   
   roles:
+
     - role: singleplatform-eng.users    
-      tags: ['service:users', 'stage:init']
+      tags: 
+        - users
+        - stage:build
 
     - role: ahuffman.sudoers
-      tags: ['service:sudo', 'stage:init']
+      tags: 
+        - sudo
+        - sudoers
+        - stage:build
 
     - role: willshersystems.sshd
-      tags: ['service:sshd', 'stage:init']
+      tags: 
+        - sshd
+        - ssh
+        - stage:build
 
     - role: geerlingguy.ntp
-      tags: ['service:ntp', 'stage:init']
+      tags: 
+        - ntp
+        - ntpd
+        - stage:build
 
     - role: sbaerlocher.snmp
-      tags: ['service:snmp', 'stage:init']
+      tags: 
+        - snmp
+        - snmpd
 
     - role: geerlingguy.firewall
-      tags: ['service:firewall', 'stage:init']
+      tags: 
+        - firewall
+        - firewalld
+        - iptables    
+        - stage:build
 

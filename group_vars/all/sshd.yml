@@ -11,6 +11,8 @@ sshd:
     - properlysortednyc
     - mjbeaumont
     - drankin
+    - ansible-deploy
+    - ilessing
 
   PubkeyAuthentication: True
   LogLevel: 'debug'

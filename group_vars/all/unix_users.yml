@@ -1,3 +1,8 @@
+groups_to_create:
+  - name: ops
+  - name: dld
+
+
 users:
   - username: josh
     name: Josh Preston
@@ -26,42 +31,39 @@ users:
     ssh_key:
       - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDc97wY2Hoprkmtf3PVOIP5CbGCqDM21O6pBfhw1Zz21bHoXWs0ftMc2/2tyTOiFBHrUvUGGunXVmB3o/HZaMof+P1rAjZMV/+BEB/kfjSeUtDu+p/iiVZ7QjW2PX8pMtAEZDd+ZhRndomP5xHGvb/0tne3Lz+o0owsbKXj7grhYiHXCcJYiohmudvkEGF70WjRQ1LYTwYejgH47V19yzsNyi0M4965lpdbpFWl9WN+9C9vASN70wqL+7+LkDVm714J7MEoluRaUSVbpfAw2scPmOhGW9MmZuu0W1M1ig5xSLYhgpbW8dYPFz9JGdO4RCr3abu4ZFNfSmYnKCiOrjhz"
 
-  - username: properlysortednyc
-    name: ProperlySorted
-    groups: ['adp']
-    home: /home/properlysortednyc
+  - username: tjohnson
+    name: Tom Johnson
+    groups: ['dld']
+    home: /home/tjohnson
     shell: /bin/bash
-    password: "{{ secrets.users.properlysortednyc.unix_shadow_hash }}"
+    password: "{{ secrets.users.mcraig.unix_shadow_hash }}"
     ssh_key:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUIwKAqWSHVGQ/v+iuJ6xDYrNil99VFmj3N4ct3jSsPlRJixQwXKi+q9XYSnk3L/ThcKGviaUdmts7FVc+43sxyBPChWv1twIPJrIqcSpPfOnsg03JZU2veh33ETLt1VtE/fXU4Ut0CnIMMOG96pIo/hGQsWu/1Zv09ETnCDl1ik0IiJ3N8Pex475VUN47aoDEMvZmsNXUttMX1ZsBYA0PAJBPQPagLTZ3vwXjyiEh47CLce54o5svWQq3mP1S9nE4pcUcWDJ+X85yRRUS9jDj2l5mh+HPKnDzIbPjjIMho9YWvFiry+K2M4sR82DFy83PQnmzupcuTC/TXMc1yxLb properlysorted_nyc@Michael-Lashutkas-Office-iMac.local"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDUIwKAqWSHVGQ/v+iuJ6xDYrNil99VFmj3N4ct3jSsPlRJixQwXKi+q9XYSnk3L/ThcKGviaUdmts7FVc+43sxyBPChWv1twIPJrIqcSpPfOnsg03JZU2veh33ETLt1VtE/fXU4Ut0CnIMMOG96pIo/hGQsWu/1Zv09ETnCDl1ik0IiJ3N8Pex475VUN47aoDEMvZmsNXUttMX1ZsBYA0PAJBPQPagLTZ3vwXjyiEh47CLce54o5svWQq3mP1S9nE4pcUcWDJ+X85yRRUS9jDj2l5mh+HPKnDzIbPjjIMho9YWvFiry+K2M4sR82DFy83PQnmzupcuTC/TXMc1yxLb properlysortednyc SSH Key"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEA0O3VTs3feer9m20WnHIkUinkfXG0O0fg77DvE2iuilpc1FfmmpvqeShqMbP5lbN9TweAdcN8OiXkRQC2z1gpaiyd1r1I+mVZEzDhlpHc81yOwY2FCNUMTwhR72HoU7qZgMj3syi/74o/JkASV9B22ZFjwPO/Fr6v8NCAl8gr0oE= lee@Macintosh-3.local"  
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDEsPbeaCMjpIvfbRaX612k3tkiKZYqqOTwvsKd14tqtMNhGGGRjpJibyiJN3nY7INc9n2rlPG+F8i/W/tVGHXutYQ4rXpjx3yU7Grva9VI7VSSzVbLgyAn9WjMJWpvqvKtjhgb3zOo1WUcIZSNqDkwB29a0DactIfZgzstYVabRvbfbzDEfW0TojyYjy/fJMkm+SjLvmrIPdkNcTG0X2LJbdykbwvrGDrr1quU5sjueTPHyjtPmajpqnqvN1e3XqwJ5K+hCRUwSIZpC5jeWUbuWF+oWAe5vLAs3fO/LK0DcyjcgJogn4/1JdHr8BDxX2K8ZvZcS5DKoPOoCS2vaILL7WKOBufAqwAl5c+0a55E8RxcTBBY7vuK0V8oR1jRzKK4yVZyxYLF2LjDMG5sPTID515DL448/gzkUaeeMqDvHm2oGvFnHCPNHwI/5+RQy3BVtAzBx5Yy1K4AaKxhKPpfvtbo0lkssk9v1yMcvqBxrw+Vp6ItxCQPzTDkSxhY95dqfHZIQHFDEl6j04Ja1SABjILkmNYx0hpOhO02TkdE9tEmQrn1EJT/p4rV/QThfp1X65FNoPbDPZreiOTit/v4A0/1nPNws82HrKgAOxyyC1sC/TxZJ5Mo9gXyhF+0a8OgYvO6gka/wmDfSzGXcxFJKoqosrFDZRcZUg6p1rQmwQ== tomjohnson@ucsb.edu"
 
+  - username: adunn
+    name: Alexandra Dunn
+    groups: ['dld']
+    home: /home/adunn
+    password: "{{ secrets.users.adunn.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDBIkaRlGLf8gtGf5v81+65bzjqzsFvsAcuMCqOKzpyThs6AdC8aEH52Gw5Uqi7AnKpn/gbl4F5DgWz0PLInFeN++SEcxJkzc+LvbIvV/XhPAG+AKnuBThoRKUZpmAL0DZXjTFtlc2XDao8wu82NWdlWnIkjS88b74L2doZdqB+H+d4X4k/J9WEav1kxVd2tmm5aiB73m5unxmLdi8GzePz5wjgf2hpJugtsIvLc2J+dhfojzl2HeGUmy5AjPl/5TDGh1SdULyjwMlh9q94YCt2uAOQjf6PGUavQyPk8rGsFV56sbY8PND1iV0HZeU2TBkHFcuYKjByZMQQXh1su/7jb5Jd3iAQX9SIIP+V3jc+3XKqpmOKvBAVkF//JPQslPGV1r9LVRymuquwp1j5ZyyiIIiYKUMg8kJekJlo/teCSU5UaTSsQdqeLySfyfkE3DYSevW8cnQggy5itSOyIBtIHac4Xvn7TqdsQIBGYx+Em6X9L3a7gq7sZ68O9Vq2c6Lzv1xJOLORkK48zkDiYDVeOz0PIzuBp7lEFXDVUVTc9VRRRQ8G6qLrQbel43Rw0Ih7WIscpBMILbsnqp40aDireihvJ5AR7spvCeiwnXaTH4S5W4an4Eo2WjR/7/zJmCR9eM87xAm99PcE7rgWsp/y7K70Uo4frl7rGqpae7+HNw=="
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDIO0gqgF9giqTmMBriGuGTBGpCtWj27KgMZ+wDzBeoaEAf5nq3gEAZsXtlNdg1PBVqSotSY5pgptxjtjtskp2zLMvPfuaIyMLtr1k76mVJMFzxc5ZExHtW5OZJaeTG73ZyhS7HdRPZmMT9lYnHipicVJ6UJ5FPI2xU5s9+CEl6hJIsDbN+m8FFDEILRex9jCax+L2g7m9Nipj7pE4+fwFLtivmVwrEP6EgBllzS1taSZqOu3TZVUOiXB9aBcEfXThzpfVjJKFd9ZRbqpCzUc++fk8uTfRNEJbl31YEKxdGJmsof9RkZEmRx8cRA9MYWBUWVOFERgA6GGAtCx71jX2WgPc/09CqFSXxN850shJ4k9QH1sUt1yT7z25St94jVlLaFEpQH1x6pNReCCZIJugp4N8e5fc9FFTvToiGAEVzSRhodfPZd1d+iNOaYlzJonp+7wAEtG9FxjemwqNPwhomukKoMQ6U+QLYAPxlCTQV849jaEJGJfI8vI7zQit3sMttbBtQH2IdC9Bzsu3b4yjhCWDjDzaa9Q3pBAyoF9CiGVzwBOKws3zF3mXM4g05xvGa0+hg4W5QUOCYyqL1aI3sMOmuAGZrPfIbHXEBaBxdScFCl1UK+yS95CApucm8z5jkKNjNgO1P/llz8/7gn+L5E5SO5dwg6S7csvbMOpJ+Ow=="
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCiRWDVLkhAWHC2gRLxLqoqMIjybb0u18F3SVh+0pDQ2/4cj0I3oO3m0oJk0CFCSM3ULN8YU2nm1P5EOLTA3Dx37vfYy+8KeT4E/Tn5KUvxLDN2vWuQBSNrorH3yShMqZLcIM1pVJ43TH6e9Lls3KseqvW8SAeKUvq9rGpC/46NI6iDrBW2c8myaNcNE2imZO8q4teskN9U3xno4JKdSESlKAvymFG2OOMBxLDkPNRA4t8b2KETy2P21SbjVkWmQEltks+C24Tb0BwcQo3gepq/G7CI46ADNpA492dtB2c5q6J+XKOIzfKv3P5n4sTDImMgX4uw+JvXUv1XPREPmi5Z"
 
-  - username: mjbeaumont
-    name: Matt Beaumont
-    groups: ['adp']
-    home: /home/mjbeaumont
+  - username: ilessing
+    name: Ian Lessing
+    groups: ['dld']
+    home: /home/ilessing
+    password: "{{ secrets.users.ilessing.unix_shadow_hash }}"
+    ssh_key:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDP1IgX7gRGfzS5+EywILEqZqGYoERjRqZp3uMuYwVndBlqTMjIhBm8WPVKxogoqm+yVXTu83YGsmRoIt20o577X0M/tNSi8fgZM7FR5DFNd+GDbX8ejEY1ZL5aKZEK6G7mAUWlBh35HZGCRJ1F4K8piHiXWfpJElgTo18AIdXr6hzFsVrrwQNshBm/Xff1N298nIv1PiTLy0O6jq7e1ZT8KYcXyGYsLRZbWmGEgJt2s3NX8Ks26Xfnr5ivKDjpFYzUdbpcXjDPIL0GiaIQBQLLlYgYrVcv7WZTCUGpVa3aj5+AgrNVBuY1tH8y7FHcXsv8tnMGTX64jL6hdRC8bGsv ilessing@library.ucsb.edu"
+
+  - username: ansible-deploy
+    name: ansible-deploy
+    home: /home/ansible-deploy
     shell: /bin/bash
-    password: "{{ secrets.users.mjbeaumont.unix_shadow_hash }}"
+    groups:
+      - 'ansible-deploy'
+    password: "{{ secrets.users.ansible_deploy.unix_shadow_hash }}"
     ssh_key:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ZLq7fQRYWx9cMYbFWOiEGpwaXsqL2f9XG0mS/PsOuKjj7CV5n/C6AD3MLhI/JHRl6cp/E6O0fs00Czl79F//6X21CHGf2We7TDqQRYy60XVvW2tcDxNN6KVY/v0NmaI3cObBTfPwj6ZhmWlosELrQkG4U/AC6GGcLSOa2bI2AXiVGP2MxjbR1HxAwh/6moBCHY0rCh8eVCLPlC++/OWM97agX6/FtZBjZkvNWnMA0/1gMlYw4VUsR2WNgwyETXpb9DTvPrX+xv/vR0Hq7c9CKG1NrmZVB0mlSQ2eNy/5tTGZPXfWIslgmlWshwTJRi9+fwFyM372sHKsg2dQZXqp matt@beaumontwebdev.com"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC2ZLq7fQRYWx9cMYbFWOiEGpwaXsqL2f9XG0mS/PsOuKjj7CV5n/C6AD3MLhI/JHRl6cp/E6O0fs00Czl79F//6X21CHGf2We7TDqQRYy60XVvW2tcDxNN6KVY/v0NmaI3cObBTfPwj6ZhmWlosELrQkG4U/AC6GGcLSOa2bI2AXiVGP2MxjbR1HxAwh/6moBCHY0rCh8eVCLPlC++/OWM97agX6/FtZBjZkvNWnMA0/1gMlYw4VUsR2WNgwyETXpb9DTvPrX+xv/vR0Hq7c9CKG1NrmZVB0mlSQ2eNy/5tTGZPXfWIslgmlWshwTJRi9+fwFyM372sHKsg2dQZXqp mjbeaumont SSH Key"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA8bNLHO8djxkme2IbHvYCuDLVIDLJsvPh0AOpsQA75lcUMVPa0WX5EfpRCfstfex1dJ95ueebIksvbnV98zbt3O4nfAyvVuD5aq2F80By7ppmdTvRDUOqIMIqn8Pyeet6JaAx9mmfBHd3TiUH5e9dxT6WMJT6ZY0tF7+lto4+M7c6f9Jx4HFNT9ntkt6QqrqDJ3ygufIRLS+7vRdslcT9IfcemxIZ4HQBGIPb8Hbz3E43cdPsO3u8GwwPxao9p2Cb/ZDX4TmrGIFDOaxdgYl9qZQaaIJ+fXBdDlwXmAGXKavr6DYYNbiwnvJbGSGs2zgFPnjmKoAn+4ouuB93NJ5bfw== mjbeaumont@adp1-dev"
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAABJQAAAIEAqSMhy3fcembm7kNr231+CXSdYlSIN0X2FR3YIC7zENxOaHiRHw2RpsCQf4X0199RmIocS2+raikpaKMyajy9Dc9V0FPs5oa3CBgw0m9J/4LBkhE0+TfEamd+dnw1xGnp2/NUoDIbzy/YlnTpFQJrSnBwakNxZJuioBH8JUNjFnU= ssmith SSH Key"
-
-       
-  - username: drankin
-    name: David Rankin
-    home: /home/drankin
-    shell: /bin/bash
-    password: "{{ secrets.users.logicmonitor.unix_shadow_hash }}"
-    ssh_key:
-      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCt69f2EWVryqXvsPVdLfZJFuJ1DbnVqzlRxsfWtP3x5pyb4gVGXJJbUSMiNA+hLcODvYOSAJ4U42jA2quTcShgbl4CjauQ4Ora5JBFYOatuH4lTIe74dCbxhQCHd3POSbC3zPSDtlhsAZryIieVciGzLsdaPMO+oop3as6nlYHv4+HtvAU09du9NNbRT5nTS0Qaysftlp0uetgKb4EfJNqGb9DYJSR70RC2Ta83GIr4KY1sDzgFtqeI5EDPdlwi7nUzvs3psjuapLYGmY7/l72ykukJkzLiEDlI2IUPTPGy9U9ztgIEZkZUFw9By8ZTqXvQsqUDMw7bjvc+MQfuh5x6atT/qOy2WkQl+Q/0VSBCuDFxnfU1TJAhVlBS4pU2R6dCN6KgeB+c22RvyIbUAbpAYWjURAGvIVh99q0C/mntz+e6WEyRrM1qprTiZrQ+UMMCz1uWfj9w4JYOLOvEqPIyvDNK0OeI3Yhyqmx3hEhlzX2BtNsdf9M3mYHZDt+3RCkiGi6L6yr79is8phUXr2C0UO5P6HYK0fKud3US5HXMZjJBEgZGicR2Hc8T7QlewpLbPmCt+X4e66v0azHk+GJ6s/xOqeqRK7rOEinr31u5jqDHX7aP07PwZNLWWjFGZ4A5BumqfQcBBmyjJgJF6LIm2mUC+rfDszN888Alh4o5Q== dave@crispin.local"
-
-groups_to_create:
-  - name: ops
-  - name: adp
-  - name: dld
-
-
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDHvp/st8Hp9MFNdCjWvHu4eplfrVX+p6vIJfI3hcWdh76VTOpZeNlwFFNwtlqHtKi9jjnagMQx4yVkA99lFm00xFK8cFRk4Ki1vzXCt42BEHLrYoFMDHizE+TvQTmZh/wPc3xTFrOLv5xoFBMD+jZlc6Z70lPqqwGWKCTPJUC+HStqxhXtX9BLVs17SYFTijo/EyW5MZh7mSeK/62oo8HcYDzRTzMm6FAJxbwUzpVsuG2ErojvNxsuVrphiXRNlN54JFEzukx81vsA+u3Bb/TW9zzMkY0FDrf1Jx5cldNhV+llOKFouerOI3xNQokouf1gNWxOejuUAWoNHZKQRqJH"

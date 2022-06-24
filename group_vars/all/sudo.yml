@@ -53,3 +53,8 @@ sudoers_files:
       - users: ["%ops"]
         hosts: ["ALL"]
         commands: ["ALL"]
+
+      - users: ["ansible-deploy"]
+        hosts: ["ALL"]
+        commands: ["ALL"]
+
